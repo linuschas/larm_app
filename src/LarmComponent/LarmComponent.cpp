@@ -25,5 +25,9 @@ std::string get_address(LarmComponent* component) {
 // }
 
 void set_status(LarmComponent* component){
-    component->m_isActive != component->m_isActive;
+
+    if(component->m_isActive == false) {
+        component->m_isActive == true;
+    }
+        component->m_isActive == false;
 }
