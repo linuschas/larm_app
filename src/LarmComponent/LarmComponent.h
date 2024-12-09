@@ -21,8 +21,8 @@ public:
     std::string get_component_name() const;
     bool get_status() const;
     std::string get_address() const;
+    void print_all_component_info() const;
 };
-
 
 
 #endif

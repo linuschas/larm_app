@@ -27,3 +27,7 @@ bool LarmComponent::get_status() const{
 std::string LarmComponent::get_address() const {
     return this->m_address;
 }
+
+void LarmComponent::print_all_component_info() const{
+    std::cout << "Id: " << m_id << "\nType: " << m_component_type << "\nComponent name: " << m_name << "\nComponent status: " << m_isActive << "\nAddress: " << m_address << "\n";
+}
