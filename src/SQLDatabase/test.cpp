@@ -7,6 +7,7 @@
 TEST_CASE("SQL Database insert operations", "[SQL],[Database]")
 {
     SQLDatabase database{"test_database.sql"};
+    database.clearTables();
  
     AlarmSystem system; 
     system.customerName = "Boys";
