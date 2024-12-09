@@ -16,8 +16,10 @@ public:
     virtual int getCustomer(Customer alarm) override;
 
     SQLDatabase(std::string path);
+
+    sqlite3 *getDB();
 private:
-    sqlite3 *db;
+    sqlite3 *m_db;
 };
 
 #endif
