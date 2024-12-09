@@ -2,7 +2,7 @@
 #define __SQL_DATABASE_H__
 
 #include <sqlite3.h>
-#include "Database.h"
+#include "Database/Database.h"
 
 class SQLDatabase : Database
 {
@@ -15,6 +15,7 @@ public:
     virtual int getAlarmComponent(AlarmComponent alarm) override;
     virtual int getCustomer(Customer alarm) override;
 
+    SQLDatabase(std::string path);
 private:
     sqlite3 *db;
 };
