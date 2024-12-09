@@ -14,6 +14,7 @@ find_package(Catch2 REQUIRED)
 file ( GLOB_RECURSE test_files *.cpp )
 list ( FILTER test_files EXCLUDE REGEX ".*main\.cpp" )
 
+
 include_directories( ${Catch2_DIRS} )
 add_executable( test ${test_files} )
 target_link_libraries( test PRIVATE Catch2::Catch2WithMain )
