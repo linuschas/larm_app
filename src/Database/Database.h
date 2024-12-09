@@ -6,16 +6,13 @@
 class Database
 {
 public:
-    int insertAlarmSystem(AlarmSystem alarm);
-    int insertAlarmComponent(AlarmComponent alarm);
-    int insertCustomer(Customer alarm);
+    virtual int insertAlarmSystem(AlarmSystem alarm) = 0;
+    virtual int insertAlarmComponent(AlarmComponent alarm) = 0;
+    virtual int insertCustomer(Customer alarm) = 0;
 
-    int getAlarmSystem(AlarmSystem alarm);
-    int getAlarmComponent(AlarmComponent alarm);
-    int getCustomer(Customer alarm);
-
-private:
-    sqlite3 *db;
+    virtual int getAlarmSystem(AlarmSystem alarm) = 0;
+    virtual int getAlarmComponent(AlarmComponent alarm) = 0;
+    virtual int getCustomer(Customer alarm) = 0;
 };
 
 #endif
