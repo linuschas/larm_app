@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "DatabaseExceptions/CouldNotCreateDatabase.h"
+#include "DatabaseExceptions/CouldNotInsert.h"
 
 SQLDatabase::SQLDatabase(std::string path)
 {
@@ -42,12 +43,17 @@ inline int SQLDatabase::insertAlarmSystem(AlarmSystem &alarm)
 {
     sqlite3_stmt *stmt;
     std::string sql = "INSERT INTO alarm (address, customerName) VALUES (?, ?)";
-    sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, nullptr);
+    int res = sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, nullptr);
 
     sqlite3_bind_text(stmt, 1, alarm.address.c_str(), alarm.address.size(), nullptr);
     sqlite3_bind_text(stmt, 2, alarm.customerName.c_str(), alarm.customerName.size(), nullptr);
 
-    sqlite3_step(stmt);
+    res = sqlite3_step(stmt);
+    if (res == SQLITE_ERROR || res == SQLITE_BUSY)
+    {
+        sqlite3_finalize(stmt);
+        throw CouldNotInsert(sqlite3_errmsg(m_db));
+    }
     return sqlite3_finalize(stmt);
 }
 
@@ -56,13 +62,18 @@ inline int SQLDatabase::insertAlarmComponent(LarmComponent &alarm)
     sqlite3_stmt *stmt;
     std::string sql = "INSERT INTO alarmComponent (address, componentType, owner) VALUES (?, ?, ?)";
     const char* errorMsg;
-    sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, &errorMsg);
+    int res = sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, &errorMsg);
 
     sqlite3_bind_text(stmt, 1, alarm.address.c_str(), alarm.address.size(), nullptr);
     sqlite3_bind_text(stmt, 2, alarm.componentType.c_str(), alarm.componentType.size(), nullptr);
     sqlite3_bind_text(stmt, 3, alarm.name.c_str(), alarm.name.size(), nullptr);
 
-    sqlite3_step(stmt);
+    res = sqlite3_step(stmt);
+    if (res == SQLITE_ERROR || res == SQLITE_BUSY)
+    {
+        sqlite3_finalize(stmt);
+        throw CouldNotInsert(sqlite3_errmsg(m_db));
+    }
     return sqlite3_finalize(stmt);
 }
 
@@ -70,7 +81,7 @@ inline int SQLDatabase::insertCustomer(Customer &alarm)
 {
     sqlite3_stmt *stmt;
     std::string sql = "INSERT INTO customer (address, pinCode, tagId, verificationPhrase, name) VALUES (?, ?, ?, ?, ?)";
-    sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, nullptr);
+    int res = sqlite3_prepare(m_db, sql.c_str(), sql.size(), &stmt, nullptr);
 
     sqlite3_bind_text(stmt, 1, alarm.address.c_str(), alarm.address.size(), nullptr);
     sqlite3_bind_text(stmt, 2, alarm.pinCode.c_str(), alarm.pinCode.size(), nullptr);
@@ -78,7 +89,12 @@ inline int SQLDatabase::insertCustomer(Customer &alarm)
     sqlite3_bind_text(stmt, 4, alarm.verificationPhrase.c_str(), alarm.verificationPhrase.size(), nullptr);
     sqlite3_bind_text(stmt, 5, alarm.name.c_str(), alarm.name.size(), nullptr);
 
-    sqlite3_step(stmt);
+    res = sqlite3_step(stmt);
+    if (res == SQLITE_ERROR || res == SQLITE_BUSY)
+    {
+        sqlite3_finalize(stmt);
+        throw CouldNotInsert(sqlite3_errmsg(m_db));
+    }
     return sqlite3_finalize(stmt);
 }
 
