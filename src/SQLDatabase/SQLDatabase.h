@@ -7,9 +7,9 @@
 class SQLDatabase : Database
 {
 public:
-    virtual int insertAlarmSystem(AlarmSystem alarm) override;
-    virtual int insertAlarmComponent(AlarmComponent alarm) override;
-    virtual int insertCustomer(Customer alarm) override;
+    virtual int insertAlarmSystem(AlarmSystem &alarm) override;
+    virtual int insertAlarmComponent(AlarmComponent &alarm) override;
+    virtual int insertCustomer(Customer &alarm) override;
 
     virtual int getAlarmSystem(AlarmSystem alarm) override;
     virtual int getAlarmComponent(AlarmComponent alarm) override;
