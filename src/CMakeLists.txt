@@ -1,6 +1,8 @@
 file ( GLOB_RECURSE main_files *.cpp )
 list ( FILTER main_files EXCLUDE REGEX ".*test\.cpp$" )
 
+add_definitions(-DCMAKE)
+
 find_package(SQLite3 REQUIRED)
 
 include_directories( . ${SQLite3_DIRS} )
