@@ -1,13 +1,7 @@
-add_executable( main main.cpp ${files} )
-target_include_directories( main PRIVATE ${includes} )
+file ( GLOB_RECURSE main_files *.cpp )
 
-enable_testing()
+find_package(SQLite3 REQUIRED)
 
-find_package(Catch2 REQUIRED)
-
-add_executable( test ${files} ${includes} )
-target_link_libraries( test PRIVATE Catch2::Catch2WithMain )
-
-include( Catch )
-include( CTest )
-catch_discover_tests( test )
+include_directories( . ${SQLite3_DIRS} )
+add_executable( main ${main_files} )
+target_link_libraries( main PRIVATE ${SQLite3_LIBRARIES} )
