@@ -1,0 +1,5 @@
+if(EXISTS "/home/lovel/Repositories/larm_app/build/src/test-b12d07c_tests.cmake")
+  include("/home/lovel/Repositories/larm_app/build/src/test-b12d07c_tests.cmake")
+else()
+  add_test(test_NOT_BUILT-b12d07c test_NOT_BUILT-b12d07c)
+endif()
