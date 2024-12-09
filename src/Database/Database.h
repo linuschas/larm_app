@@ -2,20 +2,12 @@
 #define __DATABASE_H__
 
 #include <string>
+#include "LarmComponent/LarmComponent.h"
 
 struct AlarmSystem
 {
     std::string address;
     std::string customerName;
-};
-
-struct AlarmComponent
-{
-    int id;
-    std::string componentType;
-    std::string owner;
-    bool isActive;
-    std::string address;
 };
 
 struct Customer
@@ -32,11 +24,11 @@ class Database
 {
 public:
     virtual int insertAlarmSystem(AlarmSystem &alarm) = 0;
-    virtual int insertAlarmComponent(AlarmComponent &alarm) = 0;
+    virtual int insertAlarmComponent(LarmComponent &alarm) = 0;
     virtual int insertCustomer(Customer &alarm) = 0;
 
     virtual int getAlarmSystem(AlarmSystem alarm) = 0;
-    virtual int getAlarmComponent(AlarmComponent alarm) = 0;
+    virtual int getAlarmComponent(LarmComponent alarm) = 0;
     virtual int getCustomer(Customer alarm) = 0;
 
     // Database(std::string path);

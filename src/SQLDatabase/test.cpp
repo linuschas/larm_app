@@ -10,9 +10,9 @@ TEST_CASE("SQL Database insert operations", "[SQL],[Database]")
     system.address = "Backstreet";
     REQUIRE(database.insertAlarmSystem(system) == SQLITE_OK);
     
-    AlarmComponent component;
+    LarmComponent component;
     component.address = "Backstreet";
-    component.owner = "Boys";
+    component.name = "Boys";
     component.componentType = "Person";
     REQUIRE(database.insertAlarmComponent(component) == SQLITE_OK);
 

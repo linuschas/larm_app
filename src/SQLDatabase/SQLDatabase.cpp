@@ -51,7 +51,7 @@ inline int SQLDatabase::insertAlarmSystem(AlarmSystem &alarm)
     return sqlite3_finalize(stmt);
 }
 
-inline int SQLDatabase::insertAlarmComponent(AlarmComponent &alarm)
+inline int SQLDatabase::insertAlarmComponent(LarmComponent &alarm)
 {
     sqlite3_stmt *stmt;
     std::string sql = "INSERT INTO alarmComponent (address, componentType, owner) VALUES (?, ?, ?)";
@@ -60,7 +60,7 @@ inline int SQLDatabase::insertAlarmComponent(AlarmComponent &alarm)
 
     sqlite3_bind_text(stmt, 1, alarm.address.c_str(), alarm.address.size(), nullptr);
     sqlite3_bind_text(stmt, 2, alarm.componentType.c_str(), alarm.componentType.size(), nullptr);
-    sqlite3_bind_text(stmt, 3, alarm.owner.c_str(), alarm.owner.size(), nullptr);
+    sqlite3_bind_text(stmt, 3, alarm.name.c_str(), alarm.name.size(), nullptr);
 
     sqlite3_step(stmt);
     return sqlite3_finalize(stmt);
@@ -87,7 +87,7 @@ inline int SQLDatabase::getAlarmSystem(AlarmSystem alarm)
     return 0;
 }
 
-inline int SQLDatabase::getAlarmComponent(AlarmComponent alarm)
+inline int SQLDatabase::getAlarmComponent(LarmComponent alarm)
 {
     return 0;
 }
