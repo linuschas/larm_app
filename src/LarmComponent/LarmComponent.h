@@ -4,26 +4,26 @@
 #include <string>
 
 typedef struct{
-    int m_id{0};
-    std::string m_component_type{};
-    std::string m_name{};
-    bool m_isActive{false};
-    std::string m_address{};
+    int id{0};
+    std::string componentType{};
+    std::string name{};
+    bool isActive{false};
+    std::string address{};
 }LarmComponent;
 
-int get_id(LarmComponent* component);
+int getId(LarmComponent* component);
 
-std::string get_component_type(LarmComponent* component);
+std::string getComponentType(LarmComponent* component);
 
-std::string get_component_name(LarmComponent* component);
+std::string getComponentName(LarmComponent* component);
 
-bool get_status(LarmComponent* component);
+bool getStatus(LarmComponent* component);
 
-std::string get_address(LarmComponent* component);
+std::string getAddress(LarmComponent* component);
 
-void print_all_component_info(LarmComponent* component);
+void printAllComponentInfo(LarmComponent* component);
 
-void set_status(LarmComponent* component);
+void setStatus(LarmComponent* component);
 
 
 #endif

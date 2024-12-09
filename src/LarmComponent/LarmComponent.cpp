@@ -1,33 +1,33 @@
 #include "LarmComponent.h"
 
 
-int get_id(LarmComponent* component) {
-        return component->m_id;
+int getId(LarmComponent* component) {
+        return component->id;
 }
 
-std::string get_component_type( LarmComponent* component) {
-    return component->m_component_type;
+std::string getComponentType( LarmComponent* component) {
+    return component->componentType;
 }
-std::string get_component_name( LarmComponent* component){
-    return component->m_name;
-}
-
-bool get_status(LarmComponent* component) {
-    return component->m_isActive;
+std::string getComponentName( LarmComponent* component){
+    return component->name;
 }
 
-std::string get_address(LarmComponent* component) {
-    return component->m_address;
+bool getStatus(LarmComponent* component) {
+    return component->isActive;
 }
 
-// void print_all_component_info(LarmComponent* component) {
-//     std::cout << "Id: " << get_id(component) << "\nType: " << get_component_type(component) << "\nComponent name: " << get_component_name(component) << "\nComponent status: " << get_status(component) << "\nAddress: " << get_address(component) << "\n";
+std::string getAddress(LarmComponent* component) {
+    return component->address;
+}
+
+// void printAllComponentInfo(LarmComponent* component) {
+//     std::cout << "Id: " << getId(component) << "\nType: " << get_componentType(component) << "\nComponent name: " << getComponentName(component) << "\nComponent status: " << getStatus(component) << "\nAddress: " << getAddress(component) << "\n";
 // }
 
 void set_status(LarmComponent* component){
 
-    if(component->m_isActive == false) {
-        component->m_isActive == true;
+    if(component->isActive == false) {
+        component->isActive == true;
     }
-        component->m_isActive == false;
+        component->isActive == false;
 }
