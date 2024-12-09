@@ -1,33 +1,29 @@
 #include "LarmComponent.h"
 
-LarmComponent::LarmComponent(int id, std::string type, std::string name, bool isActive, std::string address) : m_id{id}, m_component_type{type}, m_name{name}, m_isActive{isActive}, m_address{address}
-{}
 
-LarmComponent::~LarmComponent()
-{
+int get_id(LarmComponent* component) {
+        return component->m_id;
 }
 
-void LarmComponent::register_component(){
+std::string get_component_type( LarmComponent* component) {
+    return component->m_component_type;
 }
-int LarmComponent::get_id() const{
-        return this->m_id;
-    }
-
-std::string LarmComponent::get_component_type() const{
-    return this->m_component_type;
-}
-std::string LarmComponent::get_component_name() const{
-    return this->m_name;
+std::string get_component_name( LarmComponent* component){
+    return component->m_name;
 }
 
-bool LarmComponent::get_status() const{
-    return this->m_isActive;
+bool get_status(LarmComponent* component) {
+    return component->m_isActive;
 }
 
-std::string LarmComponent::get_address() const {
-    return this->m_address;
+std::string get_address(LarmComponent* component) {
+    return component->m_address;
 }
 
-void LarmComponent::print_all_component_info() const{
-    std::cout << "Id: " << m_id << "\nType: " << m_component_type << "\nComponent name: " << m_name << "\nComponent status: " << m_isActive << "\nAddress: " << m_address << "\n";
+// void print_all_component_info(LarmComponent* component) {
+//     std::cout << "Id: " << get_id(component) << "\nType: " << get_component_type(component) << "\nComponent name: " << get_component_name(component) << "\nComponent status: " << get_status(component) << "\nAddress: " << get_address(component) << "\n";
+// }
+
+void set_status(LarmComponent* component){
+    component->m_isActive != component->m_isActive;
 }

@@ -3,26 +3,27 @@
 #include <iostream>
 #include <string>
 
-class LarmComponent
-{
-private:
-    int m_id;
-    std::string m_component_type;
-    std::string m_name;
-    bool m_isActive;
-    std::string m_address;
+typedef struct{
+    int m_id{0};
+    std::string m_component_type{};
+    std::string m_name{};
+    bool m_isActive{false};
+    std::string m_address{};
+}LarmComponent;
 
-public:
-    LarmComponent(int, std::string, std::string, bool, std::string);
-    ~LarmComponent();
-    void register_component();
-    int get_id() const;
-    std::string get_component_type() const;
-    std::string get_component_name() const;
-    bool get_status() const;
-    std::string get_address() const;
-    void print_all_component_info() const;
-};
+int get_id(LarmComponent* component);
+
+std::string get_component_type(LarmComponent* component);
+
+std::string get_component_name(LarmComponent* component);
+
+bool get_status(LarmComponent* component);
+
+std::string get_address(LarmComponent* component);
+
+void print_all_component_info(LarmComponent* component);
+
+void set_status(LarmComponent* component);
 
 
 #endif
