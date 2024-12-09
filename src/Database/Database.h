@@ -13,7 +13,7 @@ struct AlarmComponent
 {
     int id;
     std::string componentType;
-    std::string name;
+    std::string owner;
     bool isActive;
     std::string address;
 };
@@ -31,9 +31,9 @@ struct Customer
 class Database
 {
 public:
-    virtual int insertAlarmSystem(AlarmSystem alarm) = 0;
-    virtual int insertAlarmComponent(AlarmComponent alarm) = 0;
-    virtual int insertCustomer(Customer alarm) = 0;
+    virtual int insertAlarmSystem(AlarmSystem &alarm) = 0;
+    virtual int insertAlarmComponent(AlarmComponent &alarm) = 0;
+    virtual int insertCustomer(Customer &alarm) = 0;
 
     virtual int getAlarmSystem(AlarmSystem alarm) = 0;
     virtual int getAlarmComponent(AlarmComponent alarm) = 0;
