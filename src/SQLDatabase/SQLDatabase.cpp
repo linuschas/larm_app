@@ -101,4 +101,3 @@ inline sqlite3 *SQLDatabase::getDB()
 {
     return this->m_db;
 }
-

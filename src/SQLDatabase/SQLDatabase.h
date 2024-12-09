@@ -7,6 +7,13 @@
 class SQLDatabase : Database
 {
 public:
+    #ifdef DEBUG 
+    void clearDatabase()
+    {
+        std::string sql = "DROP ALL TABLES;";
+        sqlite3_exec(m_db, sql.c_str(), nullptr, nullptr, nullptr);
+    }
+    #endif // DEBUG
     virtual int insertAlarmSystem(AlarmSystem &alarm) override;
     virtual int insertAlarmComponent(LarmComponent &alarm) override;
     virtual int insertCustomer(Customer &alarm) override;

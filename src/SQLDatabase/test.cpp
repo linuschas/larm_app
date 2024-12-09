@@ -1,10 +1,13 @@
 #include <catch2/catch_test_macros.hpp>
 
+#define DEBUG
 #include "SQLDatabase.h"
+
 
 TEST_CASE("SQL Database insert operations", "[SQL],[Database]")
 {
     SQLDatabase database{"test_database.sql"};
+ 
     AlarmSystem system; 
     system.customerName = "Boys";
     system.address = "Backstreet";
