@@ -8,11 +8,11 @@ class Database
 public:
     int insertAlarmSystem(AlarmSystem alarm);
     int insertAlarmComponent(AlarmComponent alarm);
-    int insertAlarmSystem(Customer alarm);
+    int insertCustomer(Customer alarm);
 
     int getAlarmSystem(AlarmSystem alarm);
     int getAlarmComponent(AlarmComponent alarm);
-    int getAlarmSystem(Customer alarm);
+    int getCustomer(Customer alarm);
 
 private:
     sqlite3 *db;
