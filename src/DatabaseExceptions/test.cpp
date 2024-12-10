@@ -30,7 +30,6 @@ TEST_CASE("Testing Database exceptions", "[Exceptions],[Database]")
     REQUIRE(database.insertAlarmSystem(system) == SQLITE_OK);
     REQUIRE(database.insertAlarmComponent(component) == SQLITE_OK);
     REQUIRE(database.insertCustomer(customer) == SQLITE_OK);
-    std::cout << "Fuck" << std::endl;
 
     REQUIRE_THROWS_AS(database.insertAlarmSystem(system), CouldNotInsert);
     REQUIRE_THROWS_AS(database.insertCustomer(customer), CouldNotInsert);
