@@ -33,4 +33,5 @@ TEST_CASE("Testing Database exceptions", "[Exceptions],[Database]")
 
     REQUIRE_THROWS_AS(database.insertAlarmSystem(system), CouldNotInsert);
     REQUIRE_THROWS_AS(database.insertCustomer(customer), CouldNotInsert);
+    REQUIRE_NOTHROW(database.insertAlarmComponent(component));
 }
