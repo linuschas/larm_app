@@ -12,13 +12,11 @@ TEST_CASE("SQL Database insert operations", "[SQL],[Database]")
     AlarmSystem system; 
     system.customerName = "Boys";
     system.address = "Backstreet";
-    REQUIRE(database.insertAlarmSystem(system) == SQLITE_OK);
     
     LarmComponent component;
     component.address = "Backstreet";
     component.name = "Boys";
     component.componentType = "Person";
-    REQUIRE(database.insertAlarmComponent(component) == SQLITE_OK);
 
     Customer customer;
     customer.address = "Backstreet";
@@ -26,5 +24,8 @@ TEST_CASE("SQL Database insert operations", "[SQL],[Database]")
     customer.pinCode = "1234";
     customer.tagId = "dhy562187213afYgajHipKjhh1";
     customer.verificationPhrase = "Backstreets back";
+
+    REQUIRE(database.insertAlarmSystem(system) == SQLITE_OK);
+    REQUIRE(database.insertAlarmComponent(component) == SQLITE_OK);
     REQUIRE(database.insertCustomer(customer) == SQLITE_OK);
 }
